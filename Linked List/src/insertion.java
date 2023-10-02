@@ -8,7 +8,7 @@ class Node {
     }
 }
 
-public class LinkedList {
+public class insertion {
     private Node head;
 
     // Insertion at the beginning
@@ -53,7 +53,7 @@ public class LinkedList {
     }
 
     public static void main(String[] args) {
-        LinkedList linkedList = new LinkedList();
+        insertion linkedList = new insertion();
         linkedList.insertAtBeginning(1);
         linkedList.insertAtEnd(3);
         linkedList.insertAfter(linkedList.head, 2);
