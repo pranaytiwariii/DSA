@@ -32,8 +32,34 @@ class LinkedList {
         temp.next = newNode;
     }
 
+    // Deletion from the beginning
+    public void deleteFromBeginning() {
+        if (head == null) {
+            System.out.println("List is empty. Nothing to delete.");
+            return;
+        }
+        head = head.next;
+    }
+
+    // Deletion from the end
+    public void deleteFromEnd() {
+        if (head == null) {
+            System.out.println("List is empty. Nothing to delete.");
+            return;
+        }
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+        Node temp = head;
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+        temp.next = null;
+    }
+
     // Deletion by value
-    public void deleteNode(int key) {
+    public void deleteByValue(int key) {
         Node temp = head;
         Node prev = null;
 
@@ -86,11 +112,19 @@ public class deletion {
         System.out.println("Original Linked List: ");
         linkedList.printList();
 
-        // Delete a node by value (e.g., delete node with data=3)
-        linkedList.deleteNode(3);
+        // Deletion from the beginning
+        linkedList.deleteFromBeginning();
+        System.out.println("Linked List after deletion from beginning: ");
+        linkedList.printList();
 
-        // Print linked list after deletion
-        System.out.println("Linked List after deletion: ");
+        // Deletion from the end
+        linkedList.deleteFromEnd();
+        System.out.println("Linked List after deletion from end: ");
+        linkedList.printList();
+
+        // Deletion by value (e.g., delete node with data=2)
+        linkedList.deleteByValue(2);
+        System.out.println("Linked List after deletion of node with value 2: ");
         linkedList.printList();
     }
 }
